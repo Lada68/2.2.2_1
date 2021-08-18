@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL CARS</title>
+    <style>
+        table th, table td {padding: 5px;}
+        .row  {
+            font-style: italic;
+        }
+        .even-row {
+            color: black;
+        }
+        .odd-row {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>cars</h1>
+
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Year</th>
+    </tr>
+    <tr th:each="car : ${list}">
+        <!--     class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">-->
+        <td th:text="${car.getId()}">user</td>
+        <td th:text="${car.getModel()}">user</td>
+        <td th:text="${car.getYear()}">user</td>
+    </tr>
+</table>
+
+</body>
+</html>
