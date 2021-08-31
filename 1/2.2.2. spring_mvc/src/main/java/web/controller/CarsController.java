@@ -22,10 +22,9 @@ public class CarsController {
     }
 
     @GetMapping()
-    public String getListCars(Model model, HttpServletRequest httpServletRequest) {
+    public String getListCars(@RequestParam("count") int count, Model model) {
         model.addAttribute("cars", carService.getListCars());
-        if (httpServletRequest.getParameter("count") != null) {
-            int count = Integer.parseInt(httpServletRequest.getParameter("count"));
+        if (count > 0) {
             model.addAttribute("list", carService.show(count));
             return "list";
         }
