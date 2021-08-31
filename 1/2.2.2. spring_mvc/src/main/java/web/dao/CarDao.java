@@ -26,35 +26,5 @@ public class CarDao implements CarDaoIf {
     }
 
     public List<Car> show(int count) {
-        List<Car> list = new ArrayList<>();
-        switch (count) {
-            case 1:
-                list.add(cars.get(0));
-                break;
-            case 2:
-                list.add(cars.get(0));
-                list.add(cars.get(1));
-                break;
-            case 3:
-                list.add(cars.get(0));
-                list.add(cars.get(1));
-                list.add(cars.get(2));
-                break;
-            case 4:
-                list.add(cars.get(0));
-                list.add(cars.get(1));
-                list.add(cars.get(2));
-                list.add(cars.get(3));
-                break;
-            default:
-                list.add(cars.get(0));
-                list.add(cars.get(1));
-                list.add(cars.get(2));
-                list.add(cars.get(3));
-                list.add(cars.get(4));
-                break;
-        }
-
-        return list;
-    }
+        return cars.stream().limit(count).collect(Collectors.toList());
 }
